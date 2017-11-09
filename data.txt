@@ -1,0 +1,191 @@
+ 控制x轴的
+ legend: {
+        data:['邮件营销','联盟广告','视频广告','直接访问','搜索引擎']
+		bottom:20,
+    },
+	
+	在series中  barWidth:30,  柱形图的宽度
+	柱形图的位置 boundaryGap: false,
+	
+	let option1 = {
+                    title: {
+//                        text: '未来一周气温变化',
+//                        subtext: '纯属虚构'
+                    },
+//                    color: ['#3398DB'],
+                    tooltip: {
+//                        trigger:'axis',
+                        trigger: this.reportType === 'pie' ? 'item' : 'axis',
+                        formatter: this.reportType === 'pie' ? "{a} <br/>{b}: {c} ({d}%)" : "",
+                        axisPointer: {            // 坐标轴指示器，坐标轴触发有效
+                            type: 'line',        // 默认为直线，可选为：'line' | 'shadow'
+                            triggerTooltip: false
+                        }
+                    },
+                    toolbox: {
+                        feature: {
+                            saveAsImage: {}
+                        }
+                    },
+                    grid: {
+                        top: '12%',
+                        left: '3%',
+                        right: '4%',
+                        bottom: '80px',
+                        containLabel: true
+                    },
+                    legend:{
+                        bottom :40,
+                        data: ['邮件营销', '联盟广告', '视频广告', '直接访问', '搜索引擎'],
+                    },
+                    xAxis: [
+                        {
+                            show: this.reportType === 'pie' ? false : true,
+                            type: 'category',
+                            data: ['山东省', '河南省', '海南省', '广东省', '云南省'],
+                            axisTick: {
+                                alignWithLabel: true,
+                                show: false
+                            }
+                        }
+                    ],
+                    yAxis: [
+                        {
+                            type: 'value',
+                            axisLine: {
+                                show: false
+                            },
+                            axisTick: {
+                                show: false
+                            },
+                            splitLine: {
+                                lineStyle: {
+                                    type: 'dotted'
+                                }
+                            }
+                        }
+                    ],
+                    dataZoom: this.reportType === 'pie' ? '' : [
+                        {
+                            type: 'slider',
+                            show: true,
+                            xAxisIndex: [0],
+                            start: 0,
+                            end: 100,
+                            top: 'bottom',
+                            left: "center",
+                            right: "auto",
+                            bottom: 'auto',
+                        }],
+                    series: [
+//                        {
+//                            name: '参与人数',
+//                            type: this.reportType,
+//                            avoidLabelOverlap: false,
+//                            radius: ['40%', '70%'],
+//                            barWidth: '60%',
+//                            data: this.reportData,
+//                            color: this.reportType === 'pie' ? colors : '',
+//                            label: {
+//                                normal: {
+//                                    formatter: '{b}\n {d}%',
+//                                    color: 'black',
+//                                    textStyle: {
+//                                        color: 'black'
+//                                    }
+//                                }
+//                            },
+//                        }
+                        {
+                            name:'邮件营销',
+                            type:this.reportType,
+                            stack: '总量',
+                            data:[120, 132, 101, 134, 90, 230, 210],
+                            avoidLabelOverlap: false,
+                            radius: ['40%', '70%'],
+                            barWidth: '60%',
+                            label: {
+                                normal: {
+                                    formatter: '{b}\n {d}%',
+                                    color: 'black',
+                                    textStyle: {
+                                        color: 'black'
+                                    }
+                                }
+                            },
+                        },
+                        {
+                            name:'联盟广告',
+                            type:this.reportType,
+                            stack: '总量',
+                            data:[220, 182, 191, 234, 290, 330, 310],
+                            avoidLabelOverlap: false,
+                            radius: ['40%', '70%'],
+                            barWidth: '60%',
+                            label: {
+                                normal: {
+                                    formatter: '{b}\n {d}%',
+                                    color: 'black',
+                                    textStyle: {
+                                        color: 'black'
+                                    }
+                                }
+                            },
+                        },
+                        {
+                            name:'视频广告',
+                            type:this.reportType,
+                            stack: '总量',
+                            data:[150, 232, 201, 154, 190, 330, 410],
+                            avoidLabelOverlap: false,
+                            radius: ['40%', '70%'],
+                            barWidth: '60%',
+                            label: {
+                                normal: {
+                                    formatter: '{b}\n {d}%',
+                                    color: 'black',
+                                    textStyle: {
+                                        color: 'black'
+                                    }
+                                }
+                            },
+                        },
+                        {
+                            name:'直接访问',
+                            type:this.reportType,
+                            stack: '总量',
+                            data:[320, 332, 301, 334, 390, 330, 320],
+                            avoidLabelOverlap: false,
+                            radius: ['40%', '70%'],
+                            barWidth: '60%',
+                            label: {
+                                normal: {
+                                    formatter: '{b}\n {d}%',
+                                    color: 'black',
+                                    textStyle: {
+                                        color: 'black'
+                                    }
+                                }
+                            },
+                        },
+                        {
+                            name:'搜索引擎',
+                            type:this.reportType,
+                            stack: '总量',
+                            data:[820, 932, 901, 934, 1290, 1330, 1320],
+                            avoidLabelOverlap: false,
+                            radius: ['40%', '70%'],
+                            barWidth: '60%',
+                            label: {
+                                normal: {
+                                    formatter: '{b}\n {d}%',
+                                    color: 'black',
+                                    textStyle: {
+                                        color: 'black'
+                                    }
+                                }
+                            },
+                        },
+
+                    ]
+                };
